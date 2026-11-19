@@ -4,26 +4,33 @@ A [página de apresentação](https://insper.github.io/platform/2026.2/exercises
 pede um vídeo de **1 a 2 minutos** com: introdução, arquitetura, demonstração, desafios
 (bottlenecks) e conclusão.
 
-## Vídeo
+## Vídeo (1 min 58 s)
 
-!!! warning "Vídeo"
+<video controls preload="metadata" width="100%">
+  <source src="../video/store-pma.mp4" type="video/mp4">
+  Seu navegador não toca vídeo: <a href="../video/store-pma.mp4">baixe o arquivo</a>.
+</video>
 
-    Depois de gravar e subir no YouTube como **não listado**, troque `VIDEO_ID` abaixo pelo id do
-    vídeo e apague este aviso.
+**Como foi feito.** As cenas de terminal e de navegador são **gravações reais** do projeto rodando:
+a loja completa (imagens do grupo no Docker Hub), os mesmos `k8s.yaml` do EKS num cluster kind com
+o HPA escalando, o Grafana do Order com tráfego, e o cache e a varredura do Exchange. Elas foram
+gravadas no GitHub Actions (repositório privado `garciapp2/store-pma-video`), e cada clipe tem um
+selo com a velocidade em que aparece. Os diagramas são animações feitas com o Manim. A narração é
+de Pedro Garcia; as cenas foram sincronizadas com ela frase a frase, a partir da transcrição.
 
-<!--
-<iframe width="100%" height="470" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
--->
+## Roteiro narrado
 
-## Roteiro (1 min 50 s)
-
-| Tempo | Parte | O que aparece | Fala (resumo) |
-|---|---|---|---|
-| 0:00–0:15 | Introdução | slide de título | store-pma: loja de produtos em microsserviços, grupo 05, 3 integrantes |
-| 0:15–0:40 | Arquitetura | slide do diagrama | gateway único na frente; auth, account, product, order em Java; exchange em Python; PostgreSQL no RDS; EKS na AWS; Jenkins faz build, push e deploy |
-| 0:40–1:10 | Demo | terminal/Postman | login → `GET /exchange/USD/BRL` (cotação do PTAX) → `POST /orders` → `GET /orders/{id}?currency=BRL` (pedido em reais) → `?currency=XYZ` dá 422 |
-| 1:10–1:40 | Bottlenecks | slide com a tabela | HPA do gateway (p95 −58%), readinessProbe, Redis + Prometheus/Grafana no Order, cache do Exchange (p50 234 → 3,7 ms, 101 → 2 chamadas ao PTAX) e varredura de vulnerabilidades no pipeline |
-| 1:40–1:50 | Conclusão | slide final | funcionando de ponta a ponta; próximos passos: RDS Multi-AZ, réplicas, Cluster Autoscaler |
+| Tempo | Parte | O que aparece |
+|---|---|---|
+| 0:00 | Introdução: o projeto e o grupo | título e integrantes |
+| 0:13 | Arquitetura: gateway, serviços, AWS e Jenkins | diagrama animado |
+| 0:35 | Demonstração: 401 sem login, 403 para USER, pedido convertido em reais, 422 | gravação da loja pelo gateway |
+| 0:53 | Kubernetes e teste de carga: health-check e HPA de 1 para 4 réplicas | gravação no cluster kind |
+| 1:05 | Bottlenecks: 2 por integrante | tabela animada |
+| 1:21 | Observabilidade | gravação do Grafana |
+| 1:26 | Exchange: cache (~800 → 4 ms) e Trivy barrando a imagem | gravações do benchmark e do Trivy |
+| 1:39 | Custos e disponibilidade | animação |
+| 1:49 | Documentação e conclusão | site e animação |
 
 ## Teste de carga
 

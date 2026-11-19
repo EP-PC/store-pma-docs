@@ -9,7 +9,7 @@ observability, messaging, load balancing, vulnerability scanning, payment proces
 |---|---|---|
 | Pedro Garcia (Exchange) | **Caching**: cache das cotações com fallback | **Vulnerability scanning**: pip-audit + Trivy no pipeline |
 | Enzo Perego (Order) | **Caching**: Redis para preços e cotações | **Observability**: Prometheus + Grafana |
-| Pedro (Gateway, Auth, Account, Product) | **Load balancing / escala**: HPA do gateway | **Disponibilidade no deploy**: readinessProbe |
+| Pedro Machado (Gateway, Auth, Account, Product) | **Load balancing / escala**: HPA do gateway | **Disponibilidade no deploy**: readinessProbe |
 
 ## Pedro Garcia (Exchange)
 
@@ -173,7 +173,7 @@ gateway), Prometheus coletando a cada 5 s e painel **Store / Order** provisionad
 
 O painel mostrou que o p95 alto vinha de moedas **inválidas**, que não entram no cache.
 
-## Pedro (Gateway, Auth, Account, Product)
+## Pedro Machado (Gateway, Auth, Account, Product)
 
 ### 1. Gateway saturando CPU → HPA
 

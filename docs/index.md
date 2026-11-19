@@ -14,7 +14,7 @@ bottlenecks dele, pela análise de custos, PaaS e SLA, por esta documentação e
 
 | Integrante | GitHub | O que fez no projeto |
 |---|---|---|
-| Pedro | [pedrohmm1](https://github.com/pedrohmm1) | Gateway, Auth, Account e Product; compose, Minikube, EKS na AWS (`up.ps1`/`down.ps1`), Jenkins e CI/CD, teste de carga com HPA |
+| Pedro Machado | [pedrohmm1](https://github.com/pedrohmm1) | Gateway, Auth, Account e Product; compose, Minikube, EKS na AWS (`up.ps1`/`down.ps1`), Jenkins e CI/CD, teste de carga com HPA |
 | Enzo Perego | [EnzoPerego](https://github.com/EnzoPerego) | Order (contrato + service), Redis do Order, Prometheus e Grafana |
 | Pedro Garcia | [garciapp2](https://github.com/garciapp2) | Exchange (Python, PTAX do BCB), cache e varredura de vulnerabilidades, custos/PaaS/SLA, documentação e vídeo |
 

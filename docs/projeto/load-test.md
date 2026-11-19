@@ -28,12 +28,20 @@ Com 800 usuários, o HPA escalou o gateway de **1 → 2 → 4 réplicas em ~40 s
 
 ## Vídeo do teste com HPA
 
-!!! warning "Vídeo"
+<video controls preload="metadata" width="100%">
+  <source src="../../video/hpa.mp4" type="video/mp4">
+  Seu navegador não toca vídeo: <a href="../../video/hpa.mp4">baixe o arquivo</a>.
+</video>
 
-    A página de Load Testing pede um vídeo mostrando o teste rodando e o HPA escalando. O roteiro
-    está em `store-pma/load-test/README.md`: quatro janelas com `kubectl get hpa gateway -w`,
-    `kubectl get pods -l app=gateway -w`, `kubectl top pods` e o Locust web.
+Gravação real, em tempo real (2 min), com três painéis:
 
-<!-- Depois de gravar: troque VIDEO_ID pelo id do YouTube (não listado) e apague o aviso acima.
-<iframe width="100%" height="470" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
--->
+- **em cima:** 4 geradores de carga chamando `GET /products` em loop, de dentro do cluster;
+- **embaixo à esquerda:** `kubectl get hpa gateway -w`. A CPU vai de 0% a **186% do alvo** e o
+  HPA sobe de **1 para 4 réplicas**; com as réplicas prontas, cai para 79% e, sem carga, para 49%;
+- **embaixo à direita:** os pods do gateway nascendo e a CPU de cada um (`kubectl top`).
+
+!!! note "Onde foi gravado"
+
+    O vídeo usa os **mesmos `k8s.yaml` e o mesmo `hpa-gateway.yaml`** do EKS, num cluster kind
+    (1 control plane + 2 nós, como os 2 nós do EKS), no GitHub Actions. Os números da tabela acima
+    são os do teste com Locust no EKS em 12/11/2026.
