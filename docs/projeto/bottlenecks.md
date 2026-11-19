@@ -123,6 +123,19 @@ stage('Image Scan') {
 | antigas: `fastapi==0.109.0`, `uvicorn==0.27.0`, `httpx==0.26.0` | **15 vulnerabilidades em 2 pacotes** (14 no `starlette`, 1 no `fastapi`) | para no `Test & Audit` |
 | atuais: `fastapi==0.165.0`, `uvicorn==0.54.0`, `httpx==0.28.1` | **nenhuma vulnerabilidade conhecida** | segue |
 
+**O Trivy pegou um problema de verdade.** A primeira versão da imagem do Exchange foi **barrada**
+(exit code 1), mesmo com as dependências limpas, por 2 vulnerabilidades HIGH que já tinham
+correção. Nenhuma das duas vinha do código do grupo:
+
+| Pacote | CVE | De onde vinha | Correção no `Dockerfile` |
+|---|---|---|---|
+| `zlib1g` 1.3.1-1+b1 | CVE-2026-85091 | Debian da imagem `python:3.13-slim`, ainda sem o patch `deb13u1` | `apt-get upgrade` no estágio base |
+| `setuptools` 70.3.0 | CVE-2025-47273 | embutido no próprio `pip` (`pip/_vendor`) | imagem final sem `pip`, que não é usado em produção |
+
+Depois da correção, o mesmo `trivy image ... --exit-code 1` passou com **exit code 0** (gravação
+no vídeo de apresentação). O segundo caso mostra por que varrer a **imagem**, e não só o
+`requirements.txt`: o `pip-audit` não enxerga o que vem dentro da imagem base.
+
 **Por que barrar só HIGH/CRITICAL com correção.** Barrar tudo pararia o pipeline por falhas sem
 correção disponível na imagem base, sobre as quais o grupo não tem o que fazer. O que tem
 correção vira ação concreta: subir a versão ou rebuildar com `--pull`.
