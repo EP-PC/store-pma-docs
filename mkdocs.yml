@@ -1,8 +1,8 @@
 site_name: store-pma · Pedro Garcia
 site_author: Pedro Garcia
-site_url: https://garciapp2.github.io/store-pma-docs
-repo_url: https://github.com/garciapp2/store-pma-docs
-repo_name: garciapp2/store-pma-docs
+site_url: https://ep-pc.github.io/store-pma-docs
+repo_url: https://github.com/EP-PC/store-pma-docs
+repo_name: EP-PC/store-pma-docs
 
 theme:
   name: material

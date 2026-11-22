@@ -14,7 +14,7 @@ pede um vídeo de **1 a 2 minutos** com: introdução, arquitetura, demonstraç�
 **Como foi feito.** As cenas de terminal e de navegador são **gravações reais** do projeto rodando:
 a loja completa (imagens do grupo no Docker Hub), os mesmos `k8s.yaml` do EKS num cluster kind com
 o HPA escalando, o Grafana do Order com tráfego, e o cache e a varredura do Exchange. Elas foram
-gravadas no GitHub Actions (repositório privado `garciapp2/store-pma-video`), e cada clipe tem um
+gravadas no GitHub Actions (repositório privado [`EP-PC/store-pma-video`](https://github.com/EP-PC/store-pma-video)), e cada clipe tem um
 selo com a velocidade em que aparece. Os diagramas são animações feitas com o Manim. A narração é
 de Pedro Garcia; as cenas foram sincronizadas com ela frase a frase, a partir da transcrição.
 

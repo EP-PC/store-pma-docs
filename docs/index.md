@@ -50,7 +50,8 @@ Além da tabela: **Product** e **Order** (serviços extras do projeto), **vídeo
 | [EP-PC/Product](https://github.com/EP-PC/Product) · [EP-PC/Product-service](https://github.com/EP-PC/Product-service) | contrato e implementação do Product |
 | [EP-PC/Order](https://github.com/EP-PC/Order) · [EP-PC/Order-service](https://github.com/EP-PC/Order-service) | contrato e implementação do Order |
 | [EP-PC/Exchange-service](https://github.com/EP-PC/Exchange-service) | Exchange (Python) |
-| [garciapp2/store-pma-docs](https://github.com/garciapp2/store-pma-docs) | esta documentação |
+| [EP-PC/store-pma-docs](https://github.com/EP-PC/store-pma-docs) | esta documentação (site: https://ep-pc.github.io/store-pma-docs/) |
+| [EP-PC/store-pma-video](https://github.com/EP-PC/store-pma-video) | gravações e montagem do vídeo de apresentação |
 
 !!! note "Repositórios privados"
 
